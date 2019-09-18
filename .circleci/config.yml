@@ -41,12 +41,5 @@ jobs:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
-      - run: 
-          name: Test
-          command: |
-            -Dspring.datasource.url=jdbc:postgres://user:password@localhost:5432/postgres \
-            -Dspring.datasource.jdbcUrl=jdbc:postgres://user:password@localhost:5432/postgres \
-            -Dspring.datasource.username=user \
-            -Dspring.datasource.password=password \
-            mvn integration-test
+      - run: -Dspring.datasource.url=jdbc:postgres://user:password@localhost:5432/postgres -Dspring.datasource.jdbcUrl=jdbc:postgres://user:password@localhost:5432/postgres -Dspring.datasource.username=user  -Dspring.datasource.password=password  mvn integration-test
       # run tests!

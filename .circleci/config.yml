@@ -46,7 +46,7 @@ jobs:
           command: |
             -Dspring.datasource.url=jdbc:postgres://user:password@localhost:5432/postgres \
             -Dspring.datasource.jdbcUrl=jdbc:postgres://user:password@localhost:5432/postgres \
-            -Dspring.datasource.username=user
-            -Dspring.datasource.password=password
+            -Dspring.datasource.username=user \
+            -Dspring.datasource.password=password \
             mvn integration-test
       # run tests!

@@ -23,7 +23,7 @@ jobs:
 
     environment:
       # Customize the JVM maximum heap limit
-      MAVEN_OPTS: -Xmx3200m
+      MAVEN_OPTS: -Xmx3200m -Dspring.datasource.url=jdbc:postgres://user:password@localhost:5432/postgres -Dspring.datasource.jdbcUrl=jdbc:postgres://user:password@localhost:5432/postgres -Dspring.datasource.username=user  -Dspring.datasource.password=password 
 
     steps:
       - checkout
@@ -41,5 +41,5 @@ jobs:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
-      - run: -Dspring.datasource.url=jdbc:postgres://user:password@localhost:5432/postgres -Dspring.datasource.jdbcUrl=jdbc:postgres://user:password@localhost:5432/postgres -Dspring.datasource.username=user  -Dspring.datasource.password=password  mvn integration-test
+      - run: mvn integration-test
       # run tests!

@@ -12,6 +12,7 @@ public class Router {
    * Base path of this api.
    */
   public static final String BASE_PATH = "/api/psicologia-ms";
+  public static final String APPOINTMENT_PATH = BASE_PATH + "/appointment";  
 
   /**
    * person uri.

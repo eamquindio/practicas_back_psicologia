@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 /**
  * Entity Cita.
  *
- * @author caferrerb
+ * @author manuel
  *
  */
 @Entity

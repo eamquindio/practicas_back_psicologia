@@ -7,7 +7,7 @@ import co.edu.eam.ingesoft.products_ms.model.Cita;
 
 /**
  * Appointment Respository.
- * @author caferrerb
+ * @author manuel
  *
  */
 @Repository

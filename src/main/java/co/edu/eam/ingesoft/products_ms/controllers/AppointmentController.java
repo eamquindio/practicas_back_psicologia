@@ -9,7 +9,7 @@ import co.edu.eam.ingesoft.products_ms.routes.Router;
 /**
  * REst controller for Appointment entity.
  *
- * @author caferrerb
+ * @author manuel
  *
  */
 @RestController

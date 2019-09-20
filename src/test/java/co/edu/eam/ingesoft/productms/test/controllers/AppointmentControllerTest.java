@@ -21,13 +21,6 @@ public class AppointmentControllerTest {
   @Autowired
   private MockMvc mockMvc;
 
-  public static final String FIND_ALL = Router.PERSON_PATH + Router.FIND_ALL;
-  public static final String FIND_BY_NAME = Router.PERSON_PATH + Router.FIND_BY_NAME;
-  public static final String FIND_BY_ID = Router.PERSON_PATH + Router.FIND_PERSON;
-  public static final String SAVE = Router.PERSON_PATH + Router.CREATE_PERSON;
-  public static final String EDIT = Router.PERSON_PATH + Router.EDIT_PERSON;
-  public static final String DELETE = Router.PERSON_PATH + Router.DELETE_PERSON;
-
   @Autowired
   private PersonRepository personRepository;
 }

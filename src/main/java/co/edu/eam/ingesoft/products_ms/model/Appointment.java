@@ -67,42 +67,72 @@ public class Appointment implements Serializable {
     this.status = status;
   }
 
+  /**
+   * @return the idAppointment
+   */
   public Integer getIdAppointment() {
     return idAppointment;
   }
 
+  /**
+   * @param idAppointment the idAppointment to set
+   */
   public void setIdAppointment(Integer idAppointment) {
     this.idAppointment = idAppointment;
   }
 
+  /**
+   * @return the dateTime
+   */
   public Date getDateTime() {
     return dateTime;
   }
 
+  /**
+   * @param dateTime the dateTime to set
+   */
   public void setDateTime(Date dateTime) {
     this.dateTime = dateTime;
   }
 
+  /**
+   * @return the idPsychologist
+   */
   public String getIdPsychologist() {
     return idPsychologist;
   }
 
+  /**
+   * @param idPsychologist the idPsychologist to set
+   */
   public void setIdPsychologist(String idPsychologist) {
     this.idPsychologist = idPsychologist;
   }
 
+  /**
+   * @return the idStudent
+   */
   public String getIdStudent() {
     return idStudent;
   }
 
+  /**
+   * @param idStudent the idStudent to set
+   */
   public void setIdStudent(String idStudent) {
     this.idStudent = idStudent;
   }
 
+  /**
+   * @return the status
+   */
   public String getStatus() {
     return status;
   }
 
+  /**
+   * @param status the status to set
+   */
   public void setStatus(String status) {
     this.status = status;
   }

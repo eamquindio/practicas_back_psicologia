@@ -5,7 +5,12 @@ import org.springframework.stereotype.Repository;
 
 import co.edu.eam.ingesoft.products_ms.model.Cita;
 
+/**
+ * Appointment Respository.
+ * @author caferrerb
+ *
+ */
 @Repository
-public interface AppointmentRepository extends CrudRepository<Cita, Integer>{
+public interface AppointmentRepository extends CrudRepository<Cita, Integer> {
 
 }

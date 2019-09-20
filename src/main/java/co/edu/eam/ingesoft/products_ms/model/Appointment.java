@@ -9,6 +9,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Entity appointment.
+ *
+ * @author dani0
+ *
+ */
 @Entity
 @Table(name = "appointments")
 public class Appointment implements Serializable {
@@ -17,28 +23,28 @@ public class Appointment implements Serializable {
    * Entity Primary key.
    */
   @Id
-  private Integer id_appointment;
+  private Integer idAppointment;
 
   /**
-   * Appointment`s date_time.
+   * Appointment`s dateTime.
    */
   @NotNull
-  @Column(name = "date_time")
-  private Date date_time;
+  @Column(name = "dateTime")
+  private Date dateTime;
 
   /**
-   * Appointment`s id_psychologist.
+   * Appointment`s idPsychologist.
    */
   @NotNull
-  @Column(name = "id_psychologist")
-  private String id_psychologist;
+  @Column(name = "idPsychologist")
+  private String idPsychologist;
 
   /**
-   * Appointment`s id_student.
+   * Appointment`s idStudent.
    */
   @NotNull
-  @Column(name = "id_student")
-  private String id_student;
+  @Column(name = "idStudent")
+  private String idStudent;
 
   /**
    * Appointment`s status.
@@ -51,46 +57,46 @@ public class Appointment implements Serializable {
     super();
   }
 
-  public Appointment(Integer id_appointment, @NotNull Date date_time, @NotNull String id_psychologist,
-      @NotNull String id_student, @NotNull String status) {
+  public Appointment(Integer idAppointment, @NotNull Date dateTime, @NotNull String idPsychologist,
+      @NotNull String idStudent, @NotNull String status) {
     super();
-    this.id_appointment = id_appointment;
-    this.date_time = date_time;
-    this.id_psychologist = id_psychologist;
-    this.id_student = id_student;
+    this.idAppointment = idAppointment;
+    this.dateTime = dateTime;
+    this.idPsychologist = idPsychologist;
+    this.idStudent = idStudent;
     this.status = status;
   }
 
-  public Integer getId_appointment() {
-    return id_appointment;
+  public Integer getIdAppointment() {
+    return idAppointment;
   }
 
-  public void setId_appointment(Integer id_appointment) {
-    this.id_appointment = id_appointment;
+  public void setIdAppointment(Integer idAppointment) {
+    this.idAppointment = idAppointment;
   }
 
-  public Date getDate_time() {
-    return date_time;
+  public Date getDateTime() {
+    return dateTime;
   }
 
-  public void setDate_time(Date date_time) {
-    this.date_time = date_time;
+  public void setDateTime(Date dateTime) {
+    this.dateTime = dateTime;
   }
 
-  public String getId_psychologist() {
-    return id_psychologist;
+  public String getIdPsychologist() {
+    return idPsychologist;
   }
 
-  public void setId_psychologist(String id_psychologist) {
-    this.id_psychologist = id_psychologist;
+  public void setIdPsychologist(String idPsychologist) {
+    this.idPsychologist = idPsychologist;
   }
 
-  public String getId_student() {
-    return id_student;
+  public String getIdStudent() {
+    return idStudent;
   }
 
-  public void setId_student(String id_student) {
-    this.id_student = id_student;
+  public void setIdStudent(String idStudent) {
+    this.idStudent = idStudent;
   }
 
   public String getStatus() {

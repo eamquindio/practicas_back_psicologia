@@ -7,6 +7,11 @@ import org.springframework.stereotype.Repository;
 
 import co.edu.eam.ingesoft.products_ms.model.Appointment;
 
+/**
+ * Appointment Repository.
+ * @author dani0
+ *
+ */
 @Repository
 public interface AppointmentRepository extends CrudRepository<Appointment, Integer> {
 

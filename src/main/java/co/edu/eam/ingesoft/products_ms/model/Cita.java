@@ -144,7 +144,7 @@ public class Cita implements Serializable {
    * @param estado the estado to set
    */
   public void setEstado(String estado) {
-   this.estado = estado;
+    this.estado = estado;
   }
 
   /**

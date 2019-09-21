@@ -66,7 +66,6 @@ public class Cita implements Serializable {
   @Column(name = "descripcion")
   private String descripcion;
 
-
   public Cita() {
     super();
   }

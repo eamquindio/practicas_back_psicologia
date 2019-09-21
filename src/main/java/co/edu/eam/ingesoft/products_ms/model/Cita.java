@@ -24,7 +24,7 @@ public class Cita implements Serializable {
    * Entity Primary key.
    */
   @Id
-  @Column (name="id_cita")
+  @Column (name = "id_cita")
   private Integer idCita;
 
   /**

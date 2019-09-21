@@ -30,11 +30,9 @@ import co.edu.eam.ingesoft.products_ms.routes.Router;
 @ContextConfiguration(classes = { Application.class })
 public class AppointmentControllerTest {
 
-  String pattern = "yyyy-MM-dd HH:mm:ss.S";
-  SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 
-  String date = "2015-06-05 00:00:00.0";
-
+  
+  
   @Autowired
   private MockMvc mockMvc;
 
@@ -45,21 +43,27 @@ public class AppointmentControllerTest {
 
   @Before
   public void beforeEach() {
-    appointmentRespository.deleteAll();;
+    appointmentRespository.deleteAll();
   }
 
   @Test
   public void save() throws Exception {
-    String content = "{\"descripcion\":\"camilo\",\"titulo\":\"prueba\",\"estado\":\"activo\",\"estudianteId\":\"1\",\"psicologoCedula\":\"1\",\"fechaHora\":\"2015-06-05T05:00\",\"idCita\":1 }";
+    String content = "{\"descripcion\":\"temas basicos\",\"titulo\":\"Entrevista trabajo\",\"estado\":\"activo\",\"estudianteId\":\"1\",\"psicologoCedula\":\"1\",\"fechaHora\":\"2015-06-05T05:00\",\"idCita\":1 }";
     mockMvc.perform(post(SAVE).content(content).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+    
+    String pattern = "yyyy-MM-dd HH:mm:ss";
+    SimpleDateFormat formatter = new SimpleDateFormat(pattern);
+
+    String f= "2015-06-05 00:00:00";
+    Date date = formatter.parse(f);
     
     Cita dateToAssert = appointmentRespository.findById(new Integer(1)).get();
     assertEquals(date, dateToAssert.getFechaHora());
     assertEquals("1", dateToAssert.getPsicologoCedula());
     assertEquals("1", dateToAssert.getEstudianteId());
     assertEquals("activo", dateToAssert.getEstado());
-    assertEquals("entrevista practica", dateToAssert.getTitulo());
-    assertEquals("temas basicos de la persona", dateToAssert.getDescripcion());
+    assertEquals("Entrevista trabajo", dateToAssert.getTitulo());
+    assertEquals("temas basicos", dateToAssert.getDescripcion());
   }
 
   @Test

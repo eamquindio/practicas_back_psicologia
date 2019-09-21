@@ -67,7 +67,7 @@ public class Cita implements Serializable {
   private String descripcion;
 
   public Cita() {
-   
+    super();
   }
 
   public Cita(Integer idCita, @NotNull Date fechaHora, @NotNull String psicologoCedula, @NotNull String estudianteId,

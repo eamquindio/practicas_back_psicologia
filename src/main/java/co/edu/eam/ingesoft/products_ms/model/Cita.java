@@ -24,28 +24,29 @@ public class Cita implements Serializable {
    * Entity Primary key.
    */
   @Id
+  @Column(name = "id_cita")
   private Integer idCita;
 
   /**
    * Date`s fecha_hora.
    */
   @NotNull
-  @Column(name = "fechaHora")
+  @Column(name = "fecha_hora")
   private Date fechaHora;
 
   /**
    * Date`s psicologo_cedula.
    */
   @NotNull
-  @Column(name = "psicologoCedula")
+  @Column(name = "psicologo_cedula")
   private String psicologoCedula;
 
   /**
    * Date`s estudiante_id.
    */
   @NotNull
-  @Column(name = "estudianteId")
-  private Integer estudianteId;
+  @Column(name = "estudiante_id")
+  private String estudianteId;
 
   /**
    * Date`s estado.
@@ -65,7 +66,12 @@ public class Cita implements Serializable {
   @Column(name = "descripcion")
   private String descripcion;
 
-  public Cita(Integer idCita, @NotNull Date fechaHora, @NotNull String psicologoCedula, @NotNull Integer estudianteId,
+
+  public Cita() {
+    super();
+  }
+
+  public Cita(Integer idCita, @NotNull Date fechaHora, @NotNull String psicologoCedula, @NotNull String estudianteId,
       String estado, String titulo, String descripcion) {
     super();
     this.idCita = idCita;
@@ -122,14 +128,14 @@ public class Cita implements Serializable {
   /**
    * @return the estudianteId
    */
-  public Integer getEstudianteId() {
+  public String getEstudianteId() {
     return estudianteId;
   }
 
   /**
    * @param estudianteId the estudianteId to set
    */
-  public void setEstudianteId(Integer estudianteId) {
+  public void setEstudianteId(String estudianteId) {
     this.estudianteId = estudianteId;
   }
 

@@ -1,6 +1,8 @@
 package co.edu.eam.ingesoft.products_ms.services;
 
 import javax.persistence.EntityExistsException;
+import javax.persistence.EntityNotFoundException;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,4 +62,19 @@ public class AppointmentService {
   public List<Cita> findByPsicologoCedulaOrEstadoOrderByFechaHora(String psicologoCedula, String estado) {
     return appointmentRespository.findByPsicologoCedulaOrEstadoOrderByFechaHora(psicologoCedula, estado);
   }
+  /**
+   * Find a date.
+   *
+   * @param id id to find the date
+   * @return the date found
+   */
+  public Cita update(Cita cita) {
+	   Cita appointmentToUpdate = find(cita.getIdCita());
+
+	    if (appointmentToUpdate == null) {
+	      throw new EntityNotFoundException("the appointment not exists");
+	    }
+
+	    return appointmentRespository.save(cita);
+	  }
 }

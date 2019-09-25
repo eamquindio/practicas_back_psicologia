@@ -2,6 +2,7 @@ package co.edu.eam.ingesoft.productms.test.controllers;
 
 import static org.junit.Assert.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.text.SimpleDateFormat;
@@ -43,7 +44,8 @@ public class AppointmentControllerTest {
 
   public static final String SAVE = Router.APPOINTMENT_PATH + Router.CREATE_APPOINTMENT;
   public static final String FIND_BY_PSICOLOGOCEDULA_ESTADO = Router.APPOINTMENT_PATH + Router.FIND_BY_PSICOLOGOCEDULA_ESTADO;
-
+  public static final String EDIT = Router.APPOINTMENT_PATH + Router.EDIT_APPOINTMENT;
+  
   @Autowired
   private AppointmentRepository appointmentRespository;
 
@@ -101,5 +103,32 @@ public class AppointmentControllerTest {
         .andExpect(jsonPath("$[0].psicologoCedula", is("1")))
         .andExpect(jsonPath("$[0].estado", is("asignada")));
   }
+  
+  @Test
+   public void edit() throws Exception {
+   String pattern = "yyyy-MM-dd HH:mm:ss";
+   SimpleDateFormat formatter = new SimpleDateFormat(pattern);
+   String f= "2015-06-05 00:00:00";
+   Date date = formatter.parse(f);
+	  
+   appointmentRespository.saveAll(Lists.list(new Cita(1,new Date(06/05/2018),"1","1","activo","prueba","cita")));
+   String content = "{\"descripcion\":\"cita\",\"titulo\":\"practica\",\"estado\":\"activo\",\"estudianteId\":\"1\",\"psicologoCedula\":\"1\",\"fechaHora\":\"2015-05-05T06:00\",\"idCita\":1 }";
+
+    mockMvc.perform(put(EDIT).content(content).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+
+    Cita appointmentToAssert = appointmentRespository.findById(new Integer(1)).get();
+    assertEquals("2015-05-05T06:00", appointmentToAssert.getFechaHora());
+   
+
+  }
+
+  @Test
+  public void editNotExists() throws Exception {
+    String content =  "{\"descripcion\":\"cita\",\"titulo\":\"practica\",\"estado\":\"activo\",\"estudianteId\":\"1\",\"psicologoCedula\":\"1\",\"fechaHora\":\"2015-05-05T06:00\",\"idCita\":1 }";
+
+    mockMvc.perform(put(EDIT).content(content).contentType(MediaType.APPLICATION_JSON))
+        .andExpect(status().isNotFound());
+  }
+
 
 }

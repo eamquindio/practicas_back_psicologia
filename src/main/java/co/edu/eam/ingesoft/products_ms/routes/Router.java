@@ -52,6 +52,10 @@ public class Router {
    * Edit person uri.
    */
   public static final String EDIT_PERSON = "/";
+  /**
+   * Edit person uri.
+   */
+  public static final String EDIT_APPOINTMENT = "/";
 
   /**
    * Edit products uri.

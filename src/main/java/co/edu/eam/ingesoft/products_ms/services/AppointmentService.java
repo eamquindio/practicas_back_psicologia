@@ -1,6 +1,7 @@
 package co.edu.eam.ingesoft.products_ms.services;
 
 import javax.persistence.EntityExistsException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +12,7 @@ import co.edu.eam.ingesoft.products_ms.repositories.AppointmentRepository;
 /**
  * Service to perform bussines operations over Appointment entity.
  *
- * @author caferrerb
+ * @author manuel
  *
  */
 @Service
@@ -49,4 +50,14 @@ public class AppointmentService {
     return appointmentRespository.findById(id).orElse(null);
   }
 
+  /**
+   * List cita by psicologoCedula and estado.
+   *
+   * @param psicologoCedula psicologoCedula to looking for
+   * @param estado estado to looking for
+   * @return list of cita with a psicologo_cedula and estado.
+   */
+  public List<Cita> findByPsicologoCedulaOrEstadoOrderByFechaHora(String psicologoCedula, String estado) {
+    return appointmentRespository.findByPsicologoCedulaOrEstadoOrderByFechaHora(psicologoCedula, estado);
+  }
 }

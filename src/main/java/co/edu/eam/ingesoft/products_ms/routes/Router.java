@@ -64,6 +64,11 @@ public class Router {
   public static final String FIND_BY_NAME = "/find_by_name";
 
   /**
+   * find by psicologoCedula and estado cita uri.
+   */
+  public static final String FIND_BY_PSICOLOGOCEDULA_ESTADO = "/find_by_psicologo_estado";
+
+  /**
    * find all person uri.
    */
   public static final String FIND_ALL = "/all";

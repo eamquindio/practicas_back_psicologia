@@ -30,7 +30,7 @@ public class AppointmentController {
    * date service.
    */
   @Autowired
-  private AppointmentService appointmentSevice;
+  private AppointmentService appointmentService;
 
   /**
    * create a date operation.

@@ -2,6 +2,7 @@ package co.edu.eam.ingesoft.products_ms.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class AppointmentController {
    * date service.
    */
   @Autowired
-  private AppointmentService appointmentService;
+  private AppointmentService appointmentSevice;
 
   /**
    * create a date operation.
@@ -60,5 +61,15 @@ public class AppointmentController {
     }
 
     return new ResponseEntity<>(cita, HttpStatus.OK);
+  }
+  /**
+   * edit an appointment fecha y hora.
+   *
+   * @param cita to edit.
+   * @return cita edited
+   */
+  @PutMapping(value = Router.EDIT_APPOINTMENT)
+  public Cita edit(@RequestBody Cita cita) {
+    return appointmentService.update(cita);
   }
 }

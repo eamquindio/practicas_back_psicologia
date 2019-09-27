@@ -65,16 +65,15 @@ public class AppointmentService {
   /**
    * Find a date.
    *
-   * @param id id to find the date
+   * @param cita  to find the date
    * @return the date found
    */
   public Cita update(Cita cita) {
-	   Cita appointmentToUpdate = find(cita.getIdCita());
+    Cita appointmentToUpdate = find(cita.getIdCita());
 
-	    if (appointmentToUpdate == null) {
-	      throw new EntityNotFoundException("the appointment not exists");
-	    }
-
-	    return appointmentRespository.save(cita);
-	  }
+    if (appointmentToUpdate == null) {
+      throw new EntityNotFoundException("the appointment not exists");
+    }
+    return appointmentRespository.save(cita);
+  }
 }

@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "5de7506a-183d-4e76-a81e-56517257c1fd",
+		"name": "ENDPOINTS PSICOLOGIA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"idCita\":1,\n\t\"fechaHora\":\"2019-10-17\",\n\t\"psicologoCedula\":\"1094927898\",\n\t\"estudianteId\":\"1\",\n\t\"estado\":\"Pendiente\",\n\t\"titulo\":\"cita estudiante hoja de vida\",\n\t\"descripcion\":\"revisar hoja de vida y validar informacion personal\"\n\t\n}\n\n ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/psicologia-ms/appointment/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"psicologia-ms",
+						"appointment",
+						""
+					]
+				},
+				"description": "endPoint to save an appointment"
+			},
+			"response": []
+		},
+		{
+			"name": "GET",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"idCita\":1,\n\t\"fechaHora\":\"2019-10-17\",\n\t\"psicologoCedula\":\"1094927898\",\n\t\"estudianteId\":\"1\",\n\t\"estado\":\"Pendiente\",\n\t\"titulo\":\"cita estudiante hoja de vida\",\n\t\"descripcion\":\"revisar hoja de vida y validar informacion personal\"\n\t\n}\n\n ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/psicologia-ms/appointment/find_by_psicologo_estado/?psicologoCedula=1094927898&estado=Pendiente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"psicologia-ms",
+						"appointment",
+						"find_by_psicologo_estado",
+						""
+					],
+					"query": [
+						{
+							"key": "psicologoCedula",
+							"value": "1094927898"
+						},
+						{
+							"key": "estado",
+							"value": "Pendiente"
+						}
+					]
+				},
+				"description": "endPoint para buscar por cedula del psicologo y estado"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

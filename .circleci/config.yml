@@ -46,7 +46,7 @@ jobs:
       - run: mvn integration-test
 
       - persist_to_workspace:
-          root: ~/repo
+          root: ~/repo/target
           paths:
             - .
   deploy_to_staging:
@@ -54,6 +54,8 @@ jobs:
       - image: google/cloud-sdk
     working_directory: ~/repo
     steps:
+      - attach_workspace:
+        at: .
       - checkout
       - run: 
           name: Setup Google Cloud SDK

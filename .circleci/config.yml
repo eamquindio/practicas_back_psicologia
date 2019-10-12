@@ -46,7 +46,7 @@ jobs:
       - run: mvn integration-test
 
       - store_artifacts:
-          path: /target
+          path: /target/
 
   deploy_to_staging:
     docker:

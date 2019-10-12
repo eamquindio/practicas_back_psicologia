@@ -52,8 +52,14 @@ jobs:
   deploy_to_staging:
     docker:
       - image: google/cloud-sdk
+      working_directory: ~/repo
     steps:
       - checkout
+      - run: 
+          name: Setup Google Cloud SDK
+          command: |
+            ls -l  ~/repo
+            ls -l  ~/repo/target
       - run: 
           name: Setup Google Cloud SDK
           command: |

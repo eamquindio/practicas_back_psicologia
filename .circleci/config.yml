@@ -1,10 +1,4 @@
 version: 2.1
-references:
-  workspace_root: &workspace_root
-    /tmp/workspace
-  attach_workspace: &attach_workspace
-    attach_workspace:
-      at: *workspace_root
 jobs:
   build:
     docker:
@@ -34,7 +28,6 @@ jobs:
       MAVEN_OPTS: -Xmx3200m -Dspring.datasource.url=jdbc:postgres://user:password@localhost:5432/postgres -Dspring.datasource.jdbcUrl=jdbc:postgres://user:password@localhost:5432/postgres -Dspring.datasource.username=user  -Dspring.datasource.password=password 
 
     steps:
-      - *attach_workspace
       - checkout
 
       # Download and cache dependencies
@@ -53,10 +46,9 @@ jobs:
       - run: mvn integration-test
 
       - persist_to_workspace:
-          root: *workspace_root
+          root: ~/repo
           paths:
-            - target
-
+            - .
   deploy_to_staging:
     docker:
       - image: google/cloud-sdk

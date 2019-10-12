@@ -44,9 +44,9 @@ jobs:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
       - run: mvn integration-test
-
+      - run: ls -l        
       - persist_to_workspace:
-          root: ~/repo/target
+          root: target
           paths:
             - .
   deploy_to_staging:
@@ -55,9 +55,9 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: mvn clean package -DskipTests=true
-      - run: ls -l ~/repo
-      - run: ls -l ~/repo/target
+      - attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: target
       - run: 
           name: Setup Google Cloud SDK
           command: |

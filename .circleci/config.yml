@@ -55,7 +55,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - attach_workspace:
-        at: .
+          at: .
       - checkout
       - run: 
           name: Setup Google Cloud SDK

@@ -47,6 +47,7 @@ jobs:
 
       - store_artifacts:
           path: target
+          destination: target
 
   deploy_to_staging:
     docker:

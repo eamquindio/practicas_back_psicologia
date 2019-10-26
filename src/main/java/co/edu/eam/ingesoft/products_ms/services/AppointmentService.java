@@ -66,8 +66,8 @@ public class AppointmentService {
   /**
    * Update a appointmenToUpdate.
    *
-   * @param appointmenToUpdate appointmenToUpdate to update.
-   * @return appointmenToUpdate edited
+   * @param appointmen appointmenToUpdate to update.
+   * @return appointmen edited
    */
   public Cita update(Cita appointmen) {
     Cita appointmenToUpdate = find(appointmen.getIdCita());

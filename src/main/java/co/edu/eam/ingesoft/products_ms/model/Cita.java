@@ -69,7 +69,8 @@ public class Cita implements Serializable {
 		super();
 	}
 
-	public Cita(Integer idCita, @NotNull Date fechaHora, @NotNull String psicologoCedula, @NotNull String estudianteId,
+	public Cita(Integer idCita, @NotNull Date fechaHora, @NotNull String psicologoCedula,
+	    @NotNull String estudianteId,
 			String estado, String titulo, String descripcion) {
 		super();
 		this.idCita = idCita;

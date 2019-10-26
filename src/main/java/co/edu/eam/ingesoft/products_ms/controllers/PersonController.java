@@ -51,7 +51,7 @@ public class PersonController {
   /**
    * find a person.
    *
-   * @param id id for person to find
+   * @param id       id for person to find
    * @param response httpresponse
    * @return person with id
    */

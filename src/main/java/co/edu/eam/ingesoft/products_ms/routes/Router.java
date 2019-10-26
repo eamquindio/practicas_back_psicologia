@@ -56,7 +56,7 @@ public class Router {
   /**
    * Edit appointmen uri.
    */
-  public static final String EDIT_APPOINTMEN = "/id_appointmen";
+  public static final String EDIT_APPOINTMENT = "/appointment";
 
   /**
    * Edit products uri.

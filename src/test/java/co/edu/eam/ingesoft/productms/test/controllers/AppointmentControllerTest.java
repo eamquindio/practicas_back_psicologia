@@ -46,7 +46,7 @@ public class AppointmentControllerTest {
 	public static final String SAVE = Router.APPOINTMENT_PATH + Router.CREATE_APPOINTMENT;
 	public static final String FIND_BY_PSICOLOGOCEDULA_ESTADO = Router.APPOINTMENT_PATH
 			+ Router.FIND_BY_PSICOLOGOCEDULA_ESTADO;
-	public static final String EDIT = Router.APPOINTMENT_PATH + Router.EDIT_APPOINTMEN;
+	public static final String EDIT = Router.APPOINTMENT_PATH + Router.EDIT_APPOINTMENT;
 	@Autowired
 	private AppointmentRepository appointmentRespository;
 

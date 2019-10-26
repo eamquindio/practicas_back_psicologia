@@ -78,8 +78,7 @@ public class AppointmentService {
 
     return appointmentRespository.save(appointmen);
   }
-  
-  
+
   public Cita updateCita(Cita appointmen) {
     Cita appointmenToUpdate1 = null;
     try {

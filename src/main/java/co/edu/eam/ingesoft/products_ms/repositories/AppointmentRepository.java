@@ -24,8 +24,7 @@ public interface AppointmentRepository extends CrudRepository<Cita, Integer> {
   List<Cita> findAll();
 
   /**
-   * Find all citas given a psicologoCedula and estado.
-   * 
+   * Find all citas given a psicologoCedula and estado. 
    * @param psicologoCedula psicologoCedula to look for.
    * @param estado          estado to look for.
    * @return list or cita.

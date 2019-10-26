@@ -1,7 +1,9 @@
 package co.edu.eam.ingesoft.products_ms.services;
 
-import javax.persistence.EntityExistsException;
 import java.util.List;
+
+import javax.persistence.EntityExistsException;
+import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,10 +56,43 @@ public class AppointmentService {
    * List cita by psicologoCedula and estado.
    *
    * @param psicologoCedula psicologoCedula to looking for
-   * @param estado estado to looking for
+   * @param estado          estado to looking for
    * @return list of cita with a psicologo_cedula and estado.
    */
   public List<Cita> findByPsicologoCedulaOrEstadoOrderByFechaHora(String psicologoCedula, String estado) {
     return appointmentRespository.findByPsicologoCedulaOrEstadoOrderByFechaHora(psicologoCedula, estado);
   }
+
+  /**
+   * Update a appointmenToUpdate.
+   *
+   * @param appointmenToUpdate appointmenToUpdate to update.
+   * @return appointmenToUpdate edited
+   */
+  public Cita update(Cita appointmen) {
+    Cita appointmenToUpdate = find(appointmen.getIdCita());
+
+    if (appointmenToUpdate == null) {
+      throw new EntityNotFoundException("appointmenToUpdate not exists");
+    }
+
+    return appointmentRespository.save(appointmen);
+  }
+  
+  
+  public Cita updateCita(Cita appointmen) {
+    Cita appointmenToUpdate1 = null;
+    try {
+      Cita appointmenToUpdate = find(appointmen.getIdCita());
+      if (appointmenToUpdate != null) {
+        appointmenToUpdate.setFechaHora(appointmen.getFechaHora());
+        appointmentRespository.save(appointmen);
+      }
+      return appointmenToUpdate1;
+
+    } catch (EntityNotFoundException e) {
+      throw new EntityNotFoundException("La cita no se a encontrado");
+    }
+  }
+
 }

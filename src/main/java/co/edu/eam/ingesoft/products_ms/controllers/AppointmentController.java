@@ -68,7 +68,7 @@ public class AppointmentController {
    * @param appointmen person to edit
    * @return appointmen edited
    */
-  @PutMapping(value = Router.EDIT_APPOINTMEN)
+  @PutMapping(value = Router.EDIT_APPOINTMENT)
   public Cita edit(@RequestBody Cita appointmen) {
     return appointmentService.update(appointmen);
   }

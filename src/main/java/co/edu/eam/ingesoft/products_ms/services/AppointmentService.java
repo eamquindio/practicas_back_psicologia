@@ -78,21 +78,4 @@ public class AppointmentService {
 
     return appointmentRespository.save(appointmen);
   }
-  
-  
-  public Cita updateCita(int id, Cita cita) {
-    Cita cit = null;
-    try {
-      cit = appointmentRespository.findById(id).get();
-      if (cit != null) {
-        cit.setFechaHora(cita.getFechaHora());
-      
-      }
-      return cit;
-
-    } catch (EntityNotFoundException e) {
-      throw new EntityNotFoundException("La cita no se ha encontrado");
-    } 
-  }
-  
 }

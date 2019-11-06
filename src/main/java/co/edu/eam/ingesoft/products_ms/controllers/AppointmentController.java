@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.eam.ingesoft.products_ms.model.Cita;
-import co.edu.eam.ingesoft.products_ms.model.Person;
 import co.edu.eam.ingesoft.products_ms.routes.Router;
 import co.edu.eam.ingesoft.products_ms.services.AppointmentService;
 
@@ -46,7 +45,6 @@ public class AppointmentController {
   public Cita create(@RequestBody Cita cita) {
     return appointmentService.create(cita);
   }
-  
   /**
    * find a appointmen.
    *

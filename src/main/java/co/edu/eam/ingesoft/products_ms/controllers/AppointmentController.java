@@ -2,10 +2,13 @@ package co.edu.eam.ingesoft.products_ms.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -41,6 +44,23 @@ public class AppointmentController {
   @PostMapping(value = Router.CREATE_APPOINTMENT)
   public Cita create(@RequestBody Cita cita) {
     return appointmentService.create(cita);
+  }
+  /**
+   * find a appointmen.
+   *
+   * @param id       id for appointment to find
+   * @param response httpresponse
+   * @return person with id
+   */
+  @GetMapping(value = Router.FIND_APPOINTMENT + "/{id}")
+  public Cita find(@PathVariable Integer id, HttpServletResponse response) {
+    Cita cita = appointmentService.find(id);
+
+    if (cita == null) {
+      response.setStatus(HttpStatus.NOT_FOUND.value());
+    }
+
+    return cita;
   }
 
   /**

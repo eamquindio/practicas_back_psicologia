@@ -46,6 +46,8 @@ public class AppointmentControllerTest {
 	public static final String SAVE = Router.APPOINTMENT_PATH + Router.CREATE_APPOINTMENT;
 	public static final String FIND_BY_PSICOLOGOCEDULA_ESTADO = Router.APPOINTMENT_PATH
 			+ Router.FIND_BY_PSICOLOGOCEDULA_ESTADO;
+  public static final String FIND_APPOINTMENT_BY_ID = Router.APPOINTMENT_PATH + Router.FIND_APPOINTMENT;
+
 	public static final String EDIT = Router.APPOINTMENT_PATH + Router.EDIT_APPOINTMENT;
 	@Autowired
 	private AppointmentRepository appointmentRespository;
@@ -131,5 +133,22 @@ public class AppointmentControllerTest {
 		mockMvc.perform(put(EDIT).content(content).contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isNotFound());
 	}
+	
+	
+  @Test
+  public void findById() throws Exception {
+
+    appointmentRespository
+    .saveAll(Lists.list(new Cita(1, new Date(06 / 05 / 2018), "1", "1", "activo", "prueba", "claudia")));
+
+    mockMvc.perform(get(FIND_APPOINTMENT_BY_ID + "/1")).andExpect(status().isOk()).andExpect(jsonPath("$.descripcion", is("claudia")));
+  }
+
+  @Test
+  public void findByIdNotFound() throws Exception {
+    mockMvc.perform(get(FIND_APPOINTMENT_BY_ID + "/1")).andExpect(status().isNotFound());
+  }
+	
+	
 
 }
